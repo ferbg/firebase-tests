@@ -1,0 +1,65 @@
+<div style="height:100vh"
+     class="ui center aligned middle aligned grid">
+    <div style="max-width:450px"
+         class="column">
+        <h2 class="ui teal center aligned header">
+            <img src="../assets/yodalogo.png"
+                 class="ui image" /> May the force be with you</h2>
+        <form class="ui large form"
+              #form="ngForm"
+              (submit)="onSubmit(form)">
+            <div class="ui stacked segment">
+                <div class="field"
+                     *ngIf="issignup">
+                    <div class="ui fluid left icon input">
+                        <input type="text"
+                               name="firstName"
+                               placeholder="First Name"
+                               ngModel />
+                    </div>
+                </div>
+                <div class="field"
+                     *ngIf="issignup">
+                    <div class="ui fluid left icon input">
+                        <input type="text"
+                               name="lastName"
+                               placeholder="Last Name"
+                               ngModel />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui fluid left icon input">
+                        <input type="text"
+                               name="email"
+                               placeholder="E-mail address"
+                               ngModel />
+                        <i aria-hidden="true"
+                           class="user icon"></i></div>
+                </div>
+                <div class="field">
+                    <div class="ui fluid left icon input">
+                        <input type="password"
+                               name="password"
+                               placeholder="Password"
+                               ngModel />
+                        <i aria-hidden="true"
+                           class="lock icon"></i>
+                    </div>
+                </div>
+                <button type="submit"
+                        *ngIf="islogin"
+                        class="ui teal large fluid button"
+                        (click)="action = 'login'">Login</button>
+                <button type="submit"
+                        *ngIf="issignup"
+                        class="ui teal large fluid button"
+                        (click)="action = 'signup'">Sign Up</button>
+            </div>
+        </form>
+        <div class="ui message"
+             *ngIf="islogin">New to us? <a (click)="action = 'signup'">Sign Up</a></div>
+        <div class="error">
+            {{error}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-intermedio": {
+      "hosting": {
+        "firebase-tests": [
+          "angular-intermedio"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-intermedio"
+  }
+}
