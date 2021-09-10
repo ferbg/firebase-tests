@@ -7,3 +7,7 @@
     <p>Email: {{ user.email }}</p>
     <p>ID: {{ user.uid }}</p>
 </div>
+
+<div *ngIf="item | async as userProfile">
+  <pre>{{ userProfile | json }}</pre>
+</div>
