@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
 
 import { UserProfile } from './models/user-profile.model';
@@ -10,7 +11,7 @@ import { UserProfile } from './models/user-profile.model';
 })
 export class AuthService {
 
-  constructor(private router: Router, private afAuth: AngularFireAuth, private firestore : AngularFirestore) { }
+  constructor(private router: Router, private afAuth: AngularFireAuth, private firestore : AngularFirestore ) { }
 
   logout() {
     this.afAuth.signOut();
@@ -44,5 +45,9 @@ export class AuthService {
       return this.firestore.doc(`users/${user.uid}`).set(userProfile);
     }
 
+  }
+
+  updateUserDocument(userProfile: UserProfile) {
+    return this.firestore.doc(`users/${userProfile.uid}`).update(userProfile);
   }
 }

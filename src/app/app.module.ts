@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,8 @@ import { ProfileComponent } from './profile/profile.component';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   providers: [
     AngularFireAuthGuard,
