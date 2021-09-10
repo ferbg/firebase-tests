@@ -1,0 +1,16 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /users/{userId}/{fileName} {
+      allow read, write: if request.auth.uid == userId;
+    }
+
+    // El archivo pesa menos de 5mb
+    // El MIME es una imagen
+    match /{imageId} {
+      allow write: if request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*')
+    }
+  }
+}
+
