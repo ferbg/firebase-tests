@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   public item     : Observable<UserProfile> | null               = null;
   private uid     : string                                       = "";
 
-
+  changeProfileImg = false;
   loading = false;
   error: string | null = null;
 
@@ -98,6 +98,7 @@ export class ProfileComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.downloadURL = fileRef.getDownloadURL();
+          this.changeProfileImg = false;
         })
       )
       .subscribe();
