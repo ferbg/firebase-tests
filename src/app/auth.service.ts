@@ -33,6 +33,7 @@ export class AuthService {
         email: user.email,
         name: user.displayName,
         address: '',
+        alias: '',
         city: '',
         state: '',
         zip: '',

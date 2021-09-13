@@ -60,7 +60,7 @@
              *ngIf="islogin">New to us? <a (click)="action = 'signup'">Sign Up</a></div>
         <div class="ui message"
             *ngIf="issignup">Registered? <a (click)="action = 'login'">Log in</a></div>
-        <div class="error">
+        <div *ngIf="error" class="ui message error">
             {{error}}
         </div>
     </div>

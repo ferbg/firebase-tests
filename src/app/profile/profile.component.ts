@@ -56,11 +56,11 @@ export class ProfileComponent implements OnInit {
     this.loading = true;
 
     const {
-      email,name,address,city,state,zip,ip,phone,specialty
+      email,name,alias,address,city,state,zip,ip,phone,specialty
     } = ngForm.form.getRawValue();
 
     const userProfile: UserProfile = {
-      uid: this.uid,email,name,address,city,state,zip,ip,phone,specialty
+      uid: this.uid,email,name,alias,address,city,state,zip,ip,phone,specialty
     };
 
     try {
